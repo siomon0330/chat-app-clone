@@ -12,6 +12,7 @@
 		8D95E6C42203A3670097122D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D95E6C32203A3670097122D /* Assets.xcassets */; };
 		8D95E6C72203A3670097122D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D95E6C52203A3670097122D /* LaunchScreen.storyboard */; };
 		8D95E6CF2203A9880097122D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6CE2203A9880097122D /* WelcomeViewController.swift */; };
+		8D95E6D12203B57A0097122D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D95E6D02203B57A0097122D /* GoogleService-Info.plist */; };
 		C9E6D2B9D03B928E216142AB /* Pods_liChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		8D95E6C62203A3670097122D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D95E6C82203A3670097122D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D95E6CE2203A9880097122D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		8D95E6D02203B57A0097122D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				8D95E6C32203A3670097122D /* Assets.xcassets */,
 				8D95E6C52203A3670097122D /* LaunchScreen.storyboard */,
 				8D95E6C82203A3670097122D /* Info.plist */,
+				8D95E6D02203B57A0097122D /* GoogleService-Info.plist */,
 			);
 			path = liChat;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D95E6C72203A3670097122D /* LaunchScreen.storyboard in Resources */,
+				8D95E6D12203B57A0097122D /* GoogleService-Info.plist in Resources */,
 				8D95E6C42203A3670097122D /* Assets.xcassets in Resources */,
 				8D95E6C22203A3670097122D /* Main.storyboard in Resources */,
 			);
@@ -162,8 +166,6 @@
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-liChat/Pods-liChat-frameworks.sh",
@@ -191,8 +193,6 @@
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
@@ -227,15 +227,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-liChat-checkManifestLockResult.txt",
 			);

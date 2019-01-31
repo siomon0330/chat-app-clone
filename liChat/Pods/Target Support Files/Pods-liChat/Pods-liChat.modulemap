@@ -1,0 +1,6 @@
+framework module Pods_liChat {
+  umbrella header "Pods-liChat-umbrella.h"
+
+  export *
+  module * { export * }
+}

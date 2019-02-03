@@ -20,6 +20,7 @@
 		8D95E6DB2203CBB50097122D /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6DA2203CBB50097122D /* FinishRegistrationViewController.swift */; };
 		8D95E6E0220678990097122D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6DF220678990097122D /* SettingsTableViewController.swift */; };
 		8D95E6E2220683D20097122D /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6E1220683D20097122D /* UserTableViewCell.swift */; };
+		8D95E6E5220688840097122D /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6E4220688840097122D /* UsersTableViewController.swift */; };
 		C9E6D2B9D03B928E216142AB /* Pods_liChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		8D95E6DA2203CBB50097122D /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
 		8D95E6DF220678990097122D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8D95E6E1220683D20097122D /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		8D95E6E4220688840097122D /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,7 +82,8 @@
 				8D95E6BC2203A3670097122D /* AppDelegate.swift */,
 				8D95E6CE2203A9880097122D /* WelcomeViewController.swift */,
 				8D95E6DA2203CBB50097122D /* FinishRegistrationViewController.swift */,
-				8D95E6E1220683D20097122D /* UserTableViewCell.swift */,
+				8D95E6E4220688840097122D /* UsersTableViewController.swift */,
+				8D95E6E3220688500097122D /* CustomCells */,
 				8D95E6DF220678990097122D /* SettingsTableViewController.swift */,
 				8D95E6DE2203CC310097122D /* Class */,
 				8D95E6DC2203CBFE0097122D /* Helpers */,
@@ -109,6 +112,14 @@
 				8D95E6D22203B7860097122D /* FUser.swift */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		8D95E6E3220688500097122D /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				8D95E6E1220683D20097122D /* UserTableViewCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		AE3426CDEB45B6092586953E /* Pods */ = {
@@ -292,6 +303,7 @@
 				8D95E6E0220678990097122D /* SettingsTableViewController.swift in Sources */,
 				8D95E6D52203B9C80097122D /* Constants.swift in Sources */,
 				8D95E6DB2203CBB50097122D /* FinishRegistrationViewController.swift in Sources */,
+				8D95E6E5220688840097122D /* UsersTableViewController.swift in Sources */,
 				8D95E6D92203BCCD0097122D /* HelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

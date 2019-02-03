@@ -84,13 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				8D95E6BC2203A3670097122D /* AppDelegate.swift */,
-				8D95E6CE2203A9880097122D /* WelcomeViewController.swift */,
-				8D95E6DA2203CBB50097122D /* FinishRegistrationViewController.swift */,
-				8D95E6E4220688840097122D /* UsersTableViewController.swift */,
-				8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */,
-				8D95E6E62206A5C10097122D /* ChatsViewController.swift */,
+				8D95E6EA2206D6250097122D /* WelcomeView */,
+				8D95E6EC2206D65D0097122D /* SecondaryView */,
+				8D95E6EB2206D63F0097122D /* MainView */,
 				8D95E6E3220688500097122D /* CustomCells */,
-				8D95E6DF220678990097122D /* SettingsTableViewController.swift */,
 				8D95E6DE2203CC310097122D /* Class */,
 				8D95E6DC2203CBFE0097122D /* Helpers */,
 				8D95E6C02203A3670097122D /* Main.storyboard */,
@@ -126,6 +123,33 @@
 				8D95E6E1220683D20097122D /* UserTableViewCell.swift */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		8D95E6EA2206D6250097122D /* WelcomeView */ = {
+			isa = PBXGroup;
+			children = (
+				8D95E6CE2203A9880097122D /* WelcomeViewController.swift */,
+				8D95E6DA2203CBB50097122D /* FinishRegistrationViewController.swift */,
+			);
+			path = WelcomeView;
+			sourceTree = "<group>";
+		};
+		8D95E6EB2206D63F0097122D /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				8D95E6E62206A5C10097122D /* ChatsViewController.swift */,
+				8D95E6DF220678990097122D /* SettingsTableViewController.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		8D95E6EC2206D65D0097122D /* SecondaryView */ = {
+			isa = PBXGroup;
+			children = (
+				8D95E6E4220688840097122D /* UsersTableViewController.swift */,
+				8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */,
+			);
+			path = SecondaryView;
 			sourceTree = "<group>";
 		};
 		AE3426CDEB45B6092586953E /* Pods */ = {

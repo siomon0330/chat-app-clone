@@ -21,6 +21,7 @@
 		8D95E6E0220678990097122D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6DF220678990097122D /* SettingsTableViewController.swift */; };
 		8D95E6E2220683D20097122D /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6E1220683D20097122D /* UserTableViewCell.swift */; };
 		8D95E6E5220688840097122D /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6E4220688840097122D /* UsersTableViewController.swift */; };
+		8D95E6E72206A5C10097122D /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6E62206A5C10097122D /* ChatsViewController.swift */; };
 		C9E6D2B9D03B928E216142AB /* Pods_liChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		8D95E6DF220678990097122D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8D95E6E1220683D20097122D /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		8D95E6E4220688840097122D /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		8D95E6E62206A5C10097122D /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 				8D95E6CE2203A9880097122D /* WelcomeViewController.swift */,
 				8D95E6DA2203CBB50097122D /* FinishRegistrationViewController.swift */,
 				8D95E6E4220688840097122D /* UsersTableViewController.swift */,
+				8D95E6E62206A5C10097122D /* ChatsViewController.swift */,
 				8D95E6E3220688500097122D /* CustomCells */,
 				8D95E6DF220678990097122D /* SettingsTableViewController.swift */,
 				8D95E6DE2203CC310097122D /* Class */,
@@ -301,6 +304,7 @@
 				8D95E6CF2203A9880097122D /* WelcomeViewController.swift in Sources */,
 				8D95E6D72203BC0B0097122D /* CollectionReference.swift in Sources */,
 				8D95E6E0220678990097122D /* SettingsTableViewController.swift in Sources */,
+				8D95E6E72206A5C10097122D /* ChatsViewController.swift in Sources */,
 				8D95E6D52203B9C80097122D /* Constants.swift in Sources */,
 				8D95E6DB2203CBB50097122D /* FinishRegistrationViewController.swift in Sources */,
 				8D95E6E5220688840097122D /* UsersTableViewController.swift in Sources */,

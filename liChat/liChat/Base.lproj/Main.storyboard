@@ -355,10 +355,10 @@
             </objects>
             <point key="canvasLocation" x="3485.5999999999999" y="518.7192118226601"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Users Table View Controller-->
         <scene sceneID="D2l-4K-7Sz">
             <objects>
-                <tableViewController id="2BA-Ph-gFm" sceneMemberID="viewController">
+                <tableViewController id="2BA-Ph-gFm" customClass="UsersTableViewController" customModule="liChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ct3-yX-pOw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -385,14 +385,14 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OfK-3N-LoJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="OfK-3N-LoJ" customClass="UserTableViewCell" customModule="liChat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OfK-3N-LoJ" id="5eu-1I-GoD">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MlZ-Rj-nMM">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="MlZ-Rj-nMM">
                                             <rect key="frame" x="8" y="10" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="Lee-E1-VAc"/>
@@ -414,6 +414,10 @@
                                         <constraint firstItem="DmK-Yd-AFt" firstAttribute="leading" secondItem="MlZ-Rj-nMM" secondAttribute="trailing" constant="8" id="uus-TI-bRa"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarImageView" destination="MlZ-Rj-nMM" id="rPR-vy-LLh"/>
+                                    <outlet property="fullNameLabel" destination="DmK-Yd-AFt" id="SYs-sr-Ipt"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -421,6 +425,10 @@
                             <outlet property="delegate" destination="2BA-Ph-gFm" id="gVi-bX-ROB"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="filterSegmentedControl" destination="vLR-c9-dDn" id="l2w-8r-AD5"/>
+                        <outlet property="headerView" destination="6KP-OY-IJU" id="NZv-fm-34R"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qj0-m7-4sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

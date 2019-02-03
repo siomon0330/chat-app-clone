@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "876AE0A29BC820BA3F8D470F3387FA3E"
+               BlueprintIdentifier = "5DE2D194A6DC8418073CE11B2E847B62"
                BuildableName = "Pods_liChat.framework"
                BlueprintName = "Pods-liChat"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "876AE0A29BC820BA3F8D470F3387FA3E"
+            BlueprintIdentifier = "5DE2D194A6DC8418073CE11B2E847B62"
             BuildableName = "Pods_liChat.framework"
             BlueprintName = "Pods-liChat"
             ReferencedContainer = "container:Pods.xcodeproj">

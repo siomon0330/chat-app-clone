@@ -23,6 +23,8 @@
 		8D95E6E5220688840097122D /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6E4220688840097122D /* UsersTableViewController.swift */; };
 		8D95E6E72206A5C10097122D /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6E62206A5C10097122D /* ChatsViewController.swift */; };
 		8D95E6E92206C8270097122D /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */; };
+		8D9615A02207EAD9004A9534 /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D96159F2207EAD9004A9534 /* Recent.swift */; };
+		8D9615A22207FFF2004A9534 /* RecentChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9615A12207FFF2004A9534 /* RecentChatTableViewCell.swift */; };
 		C9E6D2B9D03B928E216142AB /* Pods_liChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		8D95E6E4220688840097122D /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		8D95E6E62206A5C10097122D /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
+		8D96159F2207EAD9004A9534 /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
+		8D9615A12207FFF2004A9534 /* RecentChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatTableViewCell.swift; sourceTree = "<group>"; };
 		DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				8D95E6E1220683D20097122D /* UserTableViewCell.swift */,
+				8D9615A12207FFF2004A9534 /* RecentChatTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				8D95E6E4220688840097122D /* UsersTableViewController.swift */,
+				8D96159F2207EAD9004A9534 /* Recent.swift */,
 				8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */,
 			);
 			path = SecondaryView;
@@ -326,8 +332,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D95E6D32203B7860097122D /* FUser.swift in Sources */,
+				8D9615A02207EAD9004A9534 /* Recent.swift in Sources */,
 				8D95E6E2220683D20097122D /* UserTableViewCell.swift in Sources */,
 				8D95E6E92206C8270097122D /* ProfileViewTableViewController.swift in Sources */,
+				8D9615A22207FFF2004A9534 /* RecentChatTableViewCell.swift in Sources */,
 				8D95E6BD2203A3670097122D /* AppDelegate.swift in Sources */,
 				8D95E6CF2203A9880097122D /* WelcomeViewController.swift in Sources */,
 				8D95E6D72203BC0B0097122D /* CollectionReference.swift in Sources */,

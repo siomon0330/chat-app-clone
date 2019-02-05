@@ -25,6 +25,7 @@
 		8D95E6E92206C8270097122D /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */; };
 		8D9615A02207EAD9004A9534 /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D96159F2207EAD9004A9534 /* Recent.swift */; };
 		8D9615A22207FFF2004A9534 /* RecentChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9615A12207FFF2004A9534 /* RecentChatTableViewCell.swift */; };
+		8D9615A42208FF5C004A9534 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9615A32208FF5C004A9534 /* ChatViewController.swift */; };
 		C9E6D2B9D03B928E216142AB /* Pods_liChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		8D96159F2207EAD9004A9534 /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		8D9615A12207FFF2004A9534 /* RecentChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatTableViewCell.swift; sourceTree = "<group>"; };
+		8D9615A32208FF5C004A9534 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 		8D95E6DE2203CC310097122D /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				8D96159F2207EAD9004A9534 /* Recent.swift */,
 				8D95E6D22203B7860097122D /* FUser.swift */,
 			);
 			path = Class;
@@ -152,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				8D95E6E4220688840097122D /* UsersTableViewController.swift */,
-				8D96159F2207EAD9004A9534 /* Recent.swift */,
+				8D9615A32208FF5C004A9534 /* ChatViewController.swift */,
 				8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */,
 			);
 			path = SecondaryView;
@@ -344,6 +347,7 @@
 				8D95E6D52203B9C80097122D /* Constants.swift in Sources */,
 				8D95E6DB2203CBB50097122D /* FinishRegistrationViewController.swift in Sources */,
 				8D95E6E5220688840097122D /* UsersTableViewController.swift in Sources */,
+				8D9615A42208FF5C004A9534 /* ChatViewController.swift in Sources */,
 				8D95E6D92203BCCD0097122D /* HelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

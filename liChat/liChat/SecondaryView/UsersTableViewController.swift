@@ -111,7 +111,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
         if searchController.isActive && searchController.searchBar.text != ""{
             return ""
         }else{
-            
+//            print(sectionTitleList[section])
             return sectionTitleList[section]
         }
     }

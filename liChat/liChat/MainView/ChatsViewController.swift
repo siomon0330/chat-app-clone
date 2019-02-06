@@ -44,6 +44,8 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         setTableViewHeader()
     }
+    
+    
 
    
     
@@ -149,6 +151,12 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let chatVC = ChatViewController()
         chatVC.hidesBottomBarWhenPushed = true
+        
+        chatVC.membersToPush = recent[kMEMBERSTOPUSH] as! [String]
+        chatVC.memberIds = recent[kMEMBERS] as! [String]
+        chatVC.chatRoomId = recent[kCHATROOMID] as! String
+        chatVC.titleName = recent[kWITHUSERFULLNAME] as! String
+        
         navigationController?.pushViewController(chatVC, animated: true)
         
         

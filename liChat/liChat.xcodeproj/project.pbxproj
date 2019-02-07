@@ -32,6 +32,7 @@
 		8DABC3FA220BFA1C00343A94 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC3F9220BFA1C00343A94 /* Downloader.swift */; };
 		8DABC3FC220C09D500343A94 /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC3FB220C09D500343A94 /* PhotoMediaItem.swift */; };
 		8DABC3FE220CDAE100343A94 /* VideoMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC3FD220CDAE100343A94 /* VideoMessages.swift */; };
+		8DABC400220CE95A00343A94 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC3FF220CE95A00343A94 /* AudioViewController.swift */; };
 		C9E6D2B9D03B928E216142AB /* Pods_liChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		8DABC3F9220BFA1C00343A94 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		8DABC3FB220C09D500343A94 /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
 		8DABC3FD220CDAE100343A94 /* VideoMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessages.swift; sourceTree = "<group>"; };
+		8DABC3FF220CE95A00343A94 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 				8D9615A722091B2E004A9534 /* IncomingMessages.swift */,
 				8DABC3F7220BF51100343A94 /* Camera.swift */,
 				8DABC3FD220CDAE100343A94 /* VideoMessages.swift */,
+				8DABC3FF220CE95A00343A94 /* AudioViewController.swift */,
 				8D95E6D22203B7860097122D /* FUser.swift */,
 			);
 			path = Class;
@@ -371,6 +374,7 @@
 				8D95E6DB2203CBB50097122D /* FinishRegistrationViewController.swift in Sources */,
 				8D95E6E5220688840097122D /* UsersTableViewController.swift in Sources */,
 				8DABC3FE220CDAE100343A94 /* VideoMessages.swift in Sources */,
+				8DABC400220CE95A00343A94 /* AudioViewController.swift in Sources */,
 				8D9615A42208FF5C004A9534 /* ChatViewController.swift in Sources */,
 				8D95E6D92203BCCD0097122D /* HelperFunctions.swift in Sources */,
 			);

@@ -20,7 +20,7 @@ public let APP_STARTED_NOTIFICATION = "AppStartedNotification"
 
 
 //IDS and Keys
-public let kFILEREFERENCE = ""
+public let kFILEREFERENCE = "gs://lichat-3e16a.appspot.com/"
 public let kONESIGNALAPPID = ""
 public let kSINCHKEY = ""
 public let kSINCHSECRET = ""

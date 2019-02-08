@@ -34,6 +34,8 @@
 		8DABC3FE220CDAE100343A94 /* VideoMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC3FD220CDAE100343A94 /* VideoMessages.swift */; };
 		8DABC400220CE95A00343A94 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC3FF220CE95A00343A94 /* AudioViewController.swift */; };
 		8DABC402220CFAE400343A94 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC401220CFAE400343A94 /* MapViewController.swift */; };
+		8DABC404220D3B2900343A94 /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC403220D3B2900343A94 /* PicturesCollectionViewController.swift */; };
+		8DABC406220D3B8B00343A94 /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC405220D3B8B00343A94 /* PicturesCollectionViewCell.swift */; };
 		C9E6D2B9D03B928E216142AB /* Pods_liChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		8DABC3FD220CDAE100343A94 /* VideoMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessages.swift; sourceTree = "<group>"; };
 		8DABC3FF220CE95A00343A94 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		8DABC401220CFAE400343A94 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8DABC403220D3B2900343A94 /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
+		8DABC405220D3B8B00343A94 /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				8D95E6E1220683D20097122D /* UserTableViewCell.swift */,
+				8DABC405220D3B8B00343A94 /* PicturesCollectionViewCell.swift */,
 				8D9615A12207FFF2004A9534 /* RecentChatTableViewCell.swift */,
 			);
 			path = CustomCells;
@@ -178,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				8D95E6E4220688840097122D /* UsersTableViewController.swift */,
+				8DABC403220D3B2900343A94 /* PicturesCollectionViewController.swift */,
 				8D9615A32208FF5C004A9534 /* ChatViewController.swift */,
 				8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */,
 				8DABC401220CFAE400343A94 /* MapViewController.swift */,
@@ -369,6 +375,8 @@
 				8D95E6BD2203A3670097122D /* AppDelegate.swift in Sources */,
 				8DABC402220CFAE400343A94 /* MapViewController.swift in Sources */,
 				8DABC3F8220BF51100343A94 /* Camera.swift in Sources */,
+				8DABC404220D3B2900343A94 /* PicturesCollectionViewController.swift in Sources */,
+				8DABC406220D3B8B00343A94 /* PicturesCollectionViewCell.swift in Sources */,
 				8D95E6CF2203A9880097122D /* WelcomeViewController.swift in Sources */,
 				8DABC3FA220BFA1C00343A94 /* Downloader.swift in Sources */,
 				8D95E6D72203BC0B0097122D /* CollectionReference.swift in Sources */,

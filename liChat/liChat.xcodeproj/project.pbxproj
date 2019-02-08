@@ -33,6 +33,7 @@
 		8DABC3FC220C09D500343A94 /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC3FB220C09D500343A94 /* PhotoMediaItem.swift */; };
 		8DABC3FE220CDAE100343A94 /* VideoMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC3FD220CDAE100343A94 /* VideoMessages.swift */; };
 		8DABC400220CE95A00343A94 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC3FF220CE95A00343A94 /* AudioViewController.swift */; };
+		8DABC402220CFAE400343A94 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC401220CFAE400343A94 /* MapViewController.swift */; };
 		C9E6D2B9D03B928E216142AB /* Pods_liChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		8DABC3FB220C09D500343A94 /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
 		8DABC3FD220CDAE100343A94 /* VideoMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessages.swift; sourceTree = "<group>"; };
 		8DABC3FF220CE95A00343A94 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		8DABC401220CFAE400343A94 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -178,6 +180,7 @@
 				8D95E6E4220688840097122D /* UsersTableViewController.swift */,
 				8D9615A32208FF5C004A9534 /* ChatViewController.swift */,
 				8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */,
+				8DABC401220CFAE400343A94 /* MapViewController.swift */,
 			);
 			path = SecondaryView;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				8D9615A22207FFF2004A9534 /* RecentChatTableViewCell.swift in Sources */,
 				8D9615A622091235004A9534 /* OutgoingMessages.swift in Sources */,
 				8D95E6BD2203A3670097122D /* AppDelegate.swift in Sources */,
+				8DABC402220CFAE400343A94 /* MapViewController.swift in Sources */,
 				8DABC3F8220BF51100343A94 /* Camera.swift in Sources */,
 				8D95E6CF2203A9880097122D /* WelcomeViewController.swift in Sources */,
 				8DABC3FA220BFA1C00343A94 /* Downloader.swift in Sources */,

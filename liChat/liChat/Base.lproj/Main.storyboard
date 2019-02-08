@@ -491,12 +491,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="6KP-OY-IJU">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="6KP-OY-IJU">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vLR-c9-dDn">
-                                    <rect key="frame" x="8" y="-14" width="304" height="29"/>
+                                    <rect key="frame" x="8" y="8" width="304" height="29"/>
                                     <segments>
                                         <segment title="My City"/>
                                         <segment title="My Country"/>
@@ -704,6 +704,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i54-HI-l8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6540" y="-201.04947526236884"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Phd-ag-01G">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="LBB-Af-Oea" customClass="MapViewController" customModule="liChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="thO-sq-tNx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uZZ-OK-MSl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uZZ-OK-MSl" firstAttribute="trailing" secondItem="4dl-0L-8aG" secondAttribute="trailing" id="DYq-OB-Em2"/>
+                            <constraint firstItem="uZZ-OK-MSl" firstAttribute="leading" secondItem="4dl-0L-8aG" secondAttribute="leading" id="Olr-ww-ato"/>
+                            <constraint firstItem="uZZ-OK-MSl" firstAttribute="top" secondItem="thO-sq-tNx" secondAttribute="top" id="f25-SJ-2Nl"/>
+                            <constraint firstItem="uZZ-OK-MSl" firstAttribute="bottom" secondItem="4dl-0L-8aG" secondAttribute="bottom" id="jLY-aX-2Ak"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4dl-0L-8aG"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="uZZ-OK-MSl" id="tCd-4p-FLS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pko-Ip-7TL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7520.625" y="-189.08450704225353"/>
         </scene>
         <!--Settings-->
         <scene sceneID="o1A-mF-27R">

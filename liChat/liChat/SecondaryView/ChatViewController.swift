@@ -39,12 +39,20 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     var loadOld = false
     var loadedMessagesCount = 0
     
+    var typingCounter = 0
+    
     var messages:[JSQMessage] = []
     var objectMessages:[NSDictionary] = []
     var loadedMessages:[NSDictionary] = []
     var allPictureMessages:[String] = []
     
     var initialLoadComplete = false
+    
+    var jsqAvatarDictionary:NSMutableDictionary?
+    var avatarImageDictionary:NSMutableDictionary?
+    var showAvatars = true
+    var firstLoad: Bool?
+    
     
     var outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     
@@ -76,6 +84,14 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         return subTitle
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        clearRecentCouter(chatRoomId: chatRoomId)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        clearRecentCouter(chatRoomId: chatRoomId)
+    }
+    
 //     //fix for iphoneX
 //    override func viewDidLayoutSubviews() {
 //        perform(Selector(("jsq_updateCollectionViewInsets")))
@@ -85,11 +101,18 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createTypingObserver()
+        
+        JSQMessagesCollectionViewCell.registerMenuAction(#selector(delete))
+        
         navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named:"Back"), style:.plain, target: self, action: #selector(self.backAction))
         
         collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+        
+        jsqAvatarDictionary = [:]
+        
         
         setCustomTitle()
         
@@ -195,6 +218,18 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         }else{
             return 0.0
         }
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
+        let message = messages[indexPath.row]
+        var avatar:JSQMessageAvatarImageDataSource
+        if let testAvatar = jsqAvatarDictionary!.object(forKey: message.senderId){
+            avatar = testAvatar as! JSQMessageAvatarImageDataSource
+        }else{
+            avatar = JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named:"avatarPlaceholder"), diameter: 70)
+        }
+        
+        return avatar
     }
     
     
@@ -314,6 +349,54 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     }
     
     
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapAvatarImageView avatarImageView: UIImageView!, at indexPath: IndexPath!) {
+        let senderId = messages[indexPath.row].senderId
+        var selectedUser : FUser?
+        if senderId == FUser.currentId(){
+            selectedUser = FUser.currentUser()
+        }else{
+            for user in withUsers{
+                if user.objectId == senderId{
+                    selectedUser = user
+                }
+            }
+        }
+        
+        presentUserProfile(forUser: selectedUser!)
+    }
+    //for multimedia messages delete option
+    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+        
+        super.collectionView(collectionView, shouldShowMenuForItemAt: indexPath)
+        return true
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        if messages[indexPath.row].isMediaMessage{
+            if action.description == "delete:"{
+                return true
+            }else{
+                return false
+            }
+        }else{
+            if action.description == "delete:" || action.description == "copy:"{
+                return true
+            }else{
+                return false
+            }
+        }
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didDeleteMessageAt indexPath: IndexPath!) {
+        let messageId = objectMessages[indexPath.row][kMESSAGEID] as! String
+        objectMessages.remove(at: indexPath.row)
+        messages.remove(at: indexPath.row)
+        
+        //delete message from firebase
+        OutgoingMessages.deleteMessage(withId: messageId, chatRoomId: chatRoomId)
+        
+    }
+    
     
     //MARK: send messages
     func sendMessage(text: String?, date: Date, picture: UIImage?, location: String?, video: NSURL?, audio: String?){
@@ -399,11 +482,33 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     //MARK: LoadMessages
     func loadMessages(){
+        
+        //to update message status
+        updatedChatListener = reference(.Message).document(FUser.currentId()).collection(chatRoomId).addSnapshotListener({ (snapshot, error) in
+            guard let snapshot = snapshot else{
+                return
+            }
+            
+            if !snapshot.isEmpty{
+                
+                //for diff in snapshot.documentChanges
+                
+                snapshot.documentChanges.forEach({ (diff) in
+                    if diff.type == .modified{
+                        //update local message
+                        self.updateMessage(messageDictionary: diff.document.data() as NSDictionary)
+                    }
+                })
+            }
+        })
+        
+        
+        
         //get last 11 messages
         reference(.Message).document(FUser.currentId()).collection(chatRoomId).order(by: kDATE, descending: true).limit(to: 11).getDocuments { (snapshot, error) in
             guard let snapshot = snapshot else{
                 //initial loading is done
-                //listen for new chats
+                self.listenForNewChats()
                 self.initialLoadComplete = true
                 return
             }
@@ -417,8 +522,9 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             self.finishReceivingMessage(animated: true)
             self.initialLoadComplete = true
             
-            print("we have \(self.messages.count) messages")
+            //print("we have \(self.messages.count) messages")
             //get picture messages
+            self.getPictureMessage()
             
             self.getOldmessagesInBackground()
             
@@ -446,7 +552,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                                 
                                 //for picture
                                 if type as! String == kPICTURE{
-                                    //add to pictures
+                                    self.addNewPictureMessageLink(link: item[kPICTURE] as! String)
                                 }
                                 
                                 if self.insertInitialLoadMessages(messageDictionary: item){
@@ -476,7 +582,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                 self.loadedMessages = self.removeBadMessages(allMessages: sorted) + self.loadedMessages
                 
                 //get the pic messages
-                
+                self.getPictureMessage()
                 
                 self.maxMessageNumber = self.loadedMessages.count - self.loadedMessagesCount - 1
                 self.minMessageNumber = self.maxMessageNumber - kNUMBEROFMESSAGES
@@ -512,8 +618,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         let incomingMessage = IncomingMessage(collectionView_: self.collectionView)
         //check if incoming
         if (messageDictionary[kSENDERID] as! String) != FUser.currentId(){
-            //update message status
             
+            OutgoingMessages.updateMessage(withId: messageDictionary[kMESSAGEID] as! String, chatRoomId: chatRoomId, memberIds: membersToPush)
         }
         
         
@@ -527,6 +633,17 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         return isIncoming(messageDictionary: messageDictionary)
         
         
+    }
+    
+    func updateMessage(messageDictionary: NSDictionary){
+        for index in 0..<objectMessages.count{
+            let temp = objectMessages[index]
+            
+            if messageDictionary[kMESSAGEID] as! String == temp[kMESSAGEID] as! String{
+                objectMessages[index] == messageDictionary
+                self.collectionView!.reloadData()
+            }
+        }
     }
     
     //MARK: LoadMoreMessages
@@ -563,11 +680,19 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     //MARK: IBActions
     @objc func backAction(){
+        
+        clearRecentCouter(chatRoomId: chatRoomId)
         self.navigationController?.popViewController(animated: true)
+        removeListeners()
+        
     }
     
      @objc func infoButtonPressed(){
-        print("show image messages")
+        
+        let mediaVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mediaView") as! PicturesCollectionViewController
+        mediaVC.allImageLinks = allPictureMessages
+        self.navigationController?.pushViewController(mediaVC, animated: true)
+        
     }
     
     @objc func showGroup(){
@@ -579,8 +704,62 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         profileVC.user = withUsers.first!
         self.navigationController?.pushViewController(profileVC, animated: true)
         
+    }
+    
+    func presentUserProfile(forUser: FUser){
+        
+        let profileVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileViewTableViewController
+        profileVC.user = forUser
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    //MARK:Typing indicator
+    func createTypingObserver(){
+        typingListener = reference(.Typing).document(chatRoomId).addSnapshotListener({ (snapshot, error) in
+            guard let snapshot = snapshot else{
+                return
+            }
+            if snapshot.exists{
+                for data in snapshot.data()!{
+                    if data.key != FUser.currentId(){
+                        let typing = data.value as! Bool
+                        self.showTypingIndicator = typing
+                        if typing{
+                            self.scrollToBottom(animated: true)
+                        }
+                    }
+                }
+            }else{
+                reference(.Typing).document(self.chatRoomId).setData([FUser.currentId(): false])
+            }
+        })
+    }
+    
+    func typingCounterStart(){
+        typingCounter += 1
+        typingCounterSave(typing: true)
+        self.perform(#selector(self.typingCounterStop), with: nil, afterDelay: 2.0)
         
     }
+    
+    @objc func typingCounterStop(){
+        typingCounter -= 1
+        if typingCounter == 0{
+            typingCounterSave(typing: false)
+        }
+    }
+    
+    func typingCounterSave(typing: Bool){
+        reference(.Typing).document(chatRoomId).updateData([FUser.currentId(): typing])
+    }
+    
+    //MARK: UITextView Delegate
+    override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        typingCounterStart()
+        return true
+    }
+    
     
     //MARK: CustomSendButton
     
@@ -631,7 +810,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         getUsersFromFirestore(withIds: memberIds) { (withUsers) in
             self.withUsers = withUsers
             
-            //get avatars
+            self.getAvatarImages()
+            
             if !self.isGroup!{
                 self.setUIForSingleChat()
                 
@@ -659,12 +839,67 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         avatarButton.addTarget(self, action: #selector(self.showUserProfile), for: .touchUpInside)
     }
     
+    
     //UIImagePickerController delegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let video = info[UIImagePickerControllerMediaURL]  as? NSURL
         let picture = info[UIImagePickerControllerOriginalImage] as? UIImage
         sendMessage(text: nil, date: Date(), picture: picture, location: nil, video: video, audio: nil)
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    //MARK:Get Avatars
+    func getAvatarImages(){
+        if showAvatars{
+            collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSize(width: 30, height: 30)
+            collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSize(width: 30, height: 30)
+            
+            //get Current user avatar
+            avatarImageFrom(fUser: FUser.currentUser()!)
+            
+            for user in withUsers{
+                avatarImageFrom(fUser: user)
+            }
+            
+        }
+    }
+    
+    func avatarImageFrom(fUser: FUser){
+        if fUser.avatar != ""{
+            
+            dataImageFromString(pictureString: fUser.avatar, withBlock: { (imageData) in
+                if imageData == nil{
+                    return
+                }
+                
+                if self.avatarImageDictionary != nil{
+                    //update avatar if we have it
+                    self.avatarImageDictionary!.removeObject(forKey: fUser.objectId)
+                    self.avatarImageDictionary!.setObject(imageData, forKey: fUser.objectId as NSCopying)
+                }else{
+                    self.avatarImageDictionary = [fUser.objectId : imageData!]
+                }
+                
+                //create jsq avatars
+                self.createJSQAvatars(avatarDictionary: self.avatarImageDictionary)
+            })
+        }
+    }
+    
+    func createJSQAvatars(avatarDictionary: NSMutableDictionary?){
+        let defaultAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named:"avatarPlaceholder"), diameter: 70)
+        if avatarDictionary != nil{
+            for userId in memberIds{
+                if let avatarImageData = avatarDictionary![userId]{
+                    let jsqAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(data: avatarImageData as! Data), diameter: 70)
+                    self.jsqAvatarDictionary!.setValue(jsqAvatar, forKey: userId)
+                }else{
+                    self.jsqAvatarDictionary!.setValue(defaultAvatar, forKey: userId)
+                }
+            }
+            self.collectionView.reloadData()
+        }
     }
     
     //MARK: Location Access
@@ -681,6 +916,20 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     
     //MARK: helper functions
+    
+    func addNewPictureMessageLink(link:String){
+        allPictureMessages.append(link)
+        
+    }
+    
+    func getPictureMessage(){
+        allPictureMessages = []
+        for message in loadedMessages{
+            if message[kTYPE] as! String == kPICTURE{
+                allPictureMessages.append(message[kPICTURE] as! String)
+            }
+        }
+    }
     
     func readTimeFrom(dateString: String) -> String{
         let date = dateFormatter().date(from: dateString)
@@ -713,6 +962,20 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             return false
         }
         return true
+    }
+    
+    func removeListeners(){
+        if typingListener != nil{
+            typingListener!.remove()
+        }
+        
+        if newChatListener != nil{
+            newChatListener!.remove()
+        }
+        
+        if updatedChatListener != nil{
+            updatedChatListener!.remove()
+        }
     }
 
   

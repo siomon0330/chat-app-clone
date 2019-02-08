@@ -734,6 +734,54 @@
             </objects>
             <point key="canvasLocation" x="7520.625" y="-189.08450704225353"/>
         </scene>
+        <!--Pictures Collection View Controller-->
+        <scene sceneID="1hd-mT-zf3">
+            <objects>
+                <collectionViewController storyboardIdentifier="mediaView" id="2c0-Xy-ZF8" customClass="PicturesCollectionViewController" customModule="liChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="YlE-tl-WuM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ekE-vU-9dA">
+                            <size key="itemSize" width="105" height="105"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="25" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="2cf-gg-PKR" customClass="PicturesCollectionViewCell" customModule="liChat" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="105" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nrv-qY-wSK">
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="Nrv-qY-wSK" firstAttribute="centerX" secondItem="2cf-gg-PKR" secondAttribute="centerX" id="DxJ-bs-QFA"/>
+                                    <constraint firstItem="Nrv-qY-wSK" firstAttribute="width" secondItem="2cf-gg-PKR" secondAttribute="width" id="fwp-dZ-Dei"/>
+                                    <constraint firstItem="Nrv-qY-wSK" firstAttribute="height" secondItem="2cf-gg-PKR" secondAttribute="height" id="fyo-lg-iVz"/>
+                                    <constraint firstItem="Nrv-qY-wSK" firstAttribute="centerY" secondItem="2cf-gg-PKR" secondAttribute="centerY" id="zt8-aQ-IqW"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="Nrv-qY-wSK" id="Kl5-Gj-kfa"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="2c0-Xy-ZF8" id="yok-HL-5Dm"/>
+                            <outlet property="delegate" destination="2c0-Xy-ZF8" id="aBt-D4-Z1f"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ypb-6Y-9WC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7520.625" y="538.73239436619724"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="o1A-mF-27R">
             <objects>

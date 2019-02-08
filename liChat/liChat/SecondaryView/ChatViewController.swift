@@ -56,7 +56,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     var outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     
-    var incomingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+    var incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     
     
     //MARK: Custom header
@@ -166,6 +166,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let data = messages[indexPath.row]
+        
         if data.senderId == FUser.currentId(){
             return outgoingBubble
         }else{

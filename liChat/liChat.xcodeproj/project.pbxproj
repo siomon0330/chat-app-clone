@@ -13,6 +13,9 @@
 		8D05007B220E4A6300BFA46A /* T&CViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05007A220E4A6300BFA46A /* T&CViewController.swift */; };
 		8D05007D220E4F0900BFA46A /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05007C220E4F0900BFA46A /* EditProfileTableViewController.swift */; };
 		8D050080220E655300BFA46A /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05007F220E655300BFA46A /* ContactsTableViewController.swift */; };
+		8D194F47220E83C1003A5C34 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D194F46220E83C1003A5C34 /* CountryCode.swift */; };
+		8D194F49220E9C83003A5C34 /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D194F48220E9C83003A5C34 /* GroupMemberCollectionViewCell.swift */; };
+		8D194F4B220E9ECE003A5C34 /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D194F4A220E9ECE003A5C34 /* NewGroupViewController.swift */; };
 		8D95E6BD2203A3670097122D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6BC2203A3670097122D /* AppDelegate.swift */; };
 		8D95E6C22203A3670097122D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D95E6C02203A3670097122D /* Main.storyboard */; };
 		8D95E6C42203A3670097122D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D95E6C32203A3670097122D /* Assets.xcassets */; };
@@ -54,6 +57,9 @@
 		8D05007A220E4A6300BFA46A /* T&CViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "T&CViewController.swift"; sourceTree = "<group>"; };
 		8D05007C220E4F0900BFA46A /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		8D05007F220E655300BFA46A /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		8D194F46220E83C1003A5C34 /* CountryCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
+		8D194F48220E9C83003A5C34 /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		8D194F4A220E9ECE003A5C34 /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		8D95E6B92203A3670097122D /* liChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = liChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D95E6BC2203A3670097122D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D95E6C12203A3670097122D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 				8DABC3F7220BF51100343A94 /* Camera.swift */,
 				8DABC3FD220CDAE100343A94 /* VideoMessages.swift */,
 				8DABC3FF220CE95A00343A94 /* AudioViewController.swift */,
+				8D194F46220E83C1003A5C34 /* CountryCode.swift */,
 				8D95E6D22203B7860097122D /* FUser.swift */,
 			);
 			path = Class;
@@ -182,6 +189,7 @@
 				8DABC405220D3B8B00343A94 /* PicturesCollectionViewCell.swift */,
 				8D050078220E436300BFA46A /* BackgroundCollectionViewCell.swift */,
 				8D9615A12207FFF2004A9534 /* RecentChatTableViewCell.swift */,
+				8D194F48220E9C83003A5C34 /* GroupMemberCollectionViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 				8D95E6E4220688840097122D /* UsersTableViewController.swift */,
 				8DABC403220D3B2900343A94 /* PicturesCollectionViewController.swift */,
 				8D05007F220E655300BFA46A /* ContactsTableViewController.swift */,
+				8D194F4A220E9ECE003A5C34 /* NewGroupViewController.swift */,
 				8D9615A32208FF5C004A9534 /* ChatViewController.swift */,
 				8D95E6E82206C8270097122D /* ProfileViewTableViewController.swift */,
 				8DABC401220CFAE400343A94 /* MapViewController.swift */,
@@ -413,10 +422,13 @@
 				8D95E6D52203B9C80097122D /* Constants.swift in Sources */,
 				8D050079220E436300BFA46A /* BackgroundCollectionViewCell.swift in Sources */,
 				8D95E6DB2203CBB50097122D /* FinishRegistrationViewController.swift in Sources */,
+				8D194F4B220E9ECE003A5C34 /* NewGroupViewController.swift in Sources */,
 				8D05007D220E4F0900BFA46A /* EditProfileTableViewController.swift in Sources */,
 				8D95E6E5220688840097122D /* UsersTableViewController.swift in Sources */,
 				8DABC3FE220CDAE100343A94 /* VideoMessages.swift in Sources */,
 				8DABC400220CE95A00343A94 /* AudioViewController.swift in Sources */,
+				8D194F47220E83C1003A5C34 /* CountryCode.swift in Sources */,
+				8D194F49220E9C83003A5C34 /* GroupMemberCollectionViewCell.swift in Sources */,
 				8D9615A42208FF5C004A9534 /* ChatViewController.swift in Sources */,
 				8D050075220E350000BFA46A /* BlockedUsersViewController.swift in Sources */,
 				8D95E6D92203BCCD0097122D /* HelperFunctions.swift in Sources */,

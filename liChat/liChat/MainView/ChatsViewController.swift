@@ -52,10 +52,15 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //MARK: IBActions
    
     @IBAction func createNewChatButtonPressed(_ sender: Any) {
-        let userVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "usersTableView") as! UsersTableViewController
-        self.navigationController?.pushViewController(userVC, animated: true)
+        selectUserForChat(isGroup: false)
         
     }
+    
+    
+    @objc func groupButtonPressed(){
+        selectUserForChat(isGroup: true)
+    }
+    
     
     
     //MARK: TableView Datasource
@@ -217,10 +222,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    @objc func groupButtonPressed(){
-        print("jellp")
-    }
-    
+  
     
     //MARK: RecentChatsCell Delegate
     
@@ -288,6 +290,13 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         updateExistingRecentWithNewValues(chatRoomId: recent[kCHATROOMID] as! String, members: recent[kMEMBERS] as! [String], withValues: [kMEMBERSTOPUSH: membersToPush])
         
+    }
+    
+    func selectUserForChat(isGroup: Bool){
+        let contactsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "contactsView") as! ContactsTableViewController
+        
+        contactsVC.isGroup = isGroup
+        self.navigationController?.pushViewController(contactsVC, animated: true)
     }
     
     

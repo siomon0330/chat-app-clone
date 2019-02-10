@@ -242,7 +242,11 @@ class ContactsTableViewController: UITableViewController, UISearchResultsUpdatin
         self.navigationController?.pushViewController(userVC, animated: true)
     }
     @objc func nextButtonPressed(){
-        print("next button pressed")
+        let newGroupVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newGroupView") as! NewGroupViewController
+        
+        newGroupVC.memberIds = memberIdsOfGroupChat
+        newGroupVC.allMemebers = membersOfGroupChat
+        self.navigationController?.pushViewController(newGroupVC, animated: true)
     }
     
     //MARK: load users
@@ -377,7 +381,8 @@ class ContactsTableViewController: UITableViewController, UISearchResultsUpdatin
             let currentUser = self.matchedUsers[i]
             
             // find first character from current record
-            let firstChar = currentUser.firstname.first!
+            //let firstChar = currentUser.firstname.first!
+            let firstChar = pingying(name: currentUser.firstname).uppercased()
             
             // convert first character into string
             let firstCharString = "\(firstChar)"
@@ -392,13 +397,25 @@ class ContactsTableViewController: UITableViewController, UISearchResultsUpdatin
                 self.allUsersGrouped[sectionTitle] = []
                 
                 // append title within section title list
-                self.sectionTitleList.append(sectionTitle)
+                
+                if !sectionTitleList.contains(sectionTitle){
+                    self.sectionTitleList.append(sectionTitle)
+                }
+                
             }
             
             // add record to the section
             self.allUsersGrouped[firstCharString]?.append(currentUser)
         }
         tableView.reloadData()
+    }
+    
+    func pingying(name: String) -> String{
+        let str = NSMutableString(string: name)
+        CFStringTransform(str, nil, kCFStringTransformToLatin, false)
+        CFStringTransform(str, nil, kCFStringTransformStripDiacritics, false)
+        return str.substring(to: 1)
+        
     }
     
     //MARK: Search controller functions

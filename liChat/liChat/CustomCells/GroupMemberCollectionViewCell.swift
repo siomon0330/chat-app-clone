@@ -22,11 +22,11 @@ class GroupMemberCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     func generateCell(user: FUser, indexPath: IndexPath){
         self.indexPath = indexPath
-        nameLabel.text = user.firstname
+        nameLabel.text = user.fullname
         if user.avatar != ""{
             imageFromData(pictureData: user.avatar, withBlock: { (image) in
                 if image != nil{
-                    self.imageView.image = image!
+                    self.imageView.image = image!.circleMasked
                 }
             })
         }

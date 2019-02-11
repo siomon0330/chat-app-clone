@@ -247,7 +247,15 @@ class InviteUserTableViewController: UITableViewController, UserTableViewCellDel
     }
     
     func goToGroupChat(membersToPush: [String], members:[String]){
+        let chatVC = ChatViewController()
+        chatVC.titleName = group[kNAME] as! String
+        chatVC.memberIds = members
+        chatVC.membersToPush = membersToPush
+        chatVC.chatRoomId = group[kGROUPID] as! String
+        chatVC.isGroup = true
+        chatVC.hidesBottomBarWhenPushed = true
         
+        self.navigationController?.pushViewController(chatVC, animated: true)
     }
     
     

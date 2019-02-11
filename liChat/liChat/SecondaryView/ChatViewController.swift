@@ -103,6 +103,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         createTypingObserver()
         
+        loadUserDefaults()
+        
         JSQMessagesCollectionViewCell.registerMenuAction(#selector(delete))
         
         navigationItem.largeTitleDisplayMode = .never
@@ -413,19 +415,27 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         //text message
         if let text = text{
-            outgoingMessage = OutgoingMessages(message: text, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kTEXT)
+            let encryptedText = ENcryption.encryptText(chatRoomId: chatRoomId, message: text)
+            outgoingMessage = OutgoingMessages(message: encryptedText, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kTEXT)
         }
         
         //picture message
         if let pic = picture{
             uploadImage(image: pic, chatRoomId: chatRoomId, view: self.navigationController!.view, completion: { (imageLink) in
                 if imageLink != nil{
-                    let text = "[\(kPICTURE)]"
-                    outgoingMessage = OutgoingMessages(message: text, pictureLink: imageLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kPICTURE)
+                    let encryptedText = ENcryption.encryptText(chatRoomId: self.chatRoomId, message: "[\(kPICTURE)]")
+                    
+                    outgoingMessage = OutgoingMessages(message: encryptedText, pictureLink: imageLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kPICTURE)
                     JSQSystemSoundPlayer.jsq_playMessageSentSound()
                     self.finishSendingMessage()
                     
                     outgoingMessage?.sendMessage(chatRoomId: self.chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
+                    
+                    
+                    
+                    //send push notification
+                    
+                    sendPushNotification(memberToPush: self.membersToPush, message: "Picture Message")
                 }
             })
             return
@@ -439,12 +449,17 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             let dataThumbNail = UIImageJPEGRepresentation(thumbNail, 0.3)
             uploadVideo(video: videoData!, chatRoomId: chatRoomId, view: self.navigationController!.view, completion: { (videoLink) in
                 if videoLink != nil{
-                    let text = "[\(kVIDEO)]"
-                    outgoingMessage = OutgoingMessages.init(message: text, video: videoLink!, thumbNail: dataThumbNail! as NSData, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kVIDEO)
+                    
+                    let encryptedText = ENcryption.encryptText(chatRoomId: self.chatRoomId, message: "[\(kVIDEO)]")
+                    
+                   
+                    outgoingMessage = OutgoingMessages.init(message: encryptedText, video: videoLink!, thumbNail: dataThumbNail! as NSData, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kVIDEO)
                     
                     JSQSystemSoundPlayer.jsq_playMessageSentSound()
                     self.finishSendingMessage()
                     outgoingMessage?.sendMessage(chatRoomId: self.chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
+                    
+                    sendPushNotification(memberToPush: self.membersToPush, message: "Video Message")
                 }
             })
             return
@@ -457,13 +472,17 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         if let audioPath = audio{
             uploadAudio(audioPath: audioPath, chatRoomId: chatRoomId, view: self.navigationController!.view, completion: { (audioLink) in
                 if audioLink != nil{
-                    let text = "[\(kAUDIO)]"
-                    outgoingMessage = OutgoingMessages(message: text, audio: audioLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kAUDIO)
+                    
+                    let encryptedText = ENcryption.encryptText(chatRoomId: self.chatRoomId, message: "[\(kAUDIO)]")
+                   
+                    outgoingMessage = OutgoingMessages(message: encryptedText, audio: audioLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kAUDIO)
                     
                     JSQSystemSoundPlayer.jsq_playMessageSentSound()
                     self.finishSendingMessage()
                     
                     outgoingMessage!.sendMessage(chatRoomId: self.chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
+                    
+                    sendPushNotification(memberToPush: self.membersToPush, message: "Audio Message")
                 }
             })
             
@@ -475,8 +494,16 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             let lat:NSNumber = NSNumber(value: appDelegate.coordinates!.latitude)
             let long:NSNumber = NSNumber(value: appDelegate.coordinates!.longitude)
             
-            let text = "[\(kLOCATION)]"
-            outgoingMessage = OutgoingMessages(message: text, latitude: lat, longitude: long, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kLOCATION)
+             let encryptedText = ENcryption.encryptText(chatRoomId: self.chatRoomId, message: "[\(kLOCATION)]")
+            
+            JSQSystemSoundPlayer.jsq_playMessageSentSound()
+            self.finishSendingMessage()
+            
+            outgoingMessage = OutgoingMessages(message: encryptedText, latitude: lat, longitude: long, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kLOCATION)
+            
+            
+            sendPushNotification(memberToPush: membersToPush, message: "Location Message")
+            return
             
         }
         
@@ -484,7 +511,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         self.finishSendingMessage()
         
-        outgoingMessage!.sendMessage(chatRoomId: chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: memberIds, membersToPush: membersToPush)
+        outgoingMessage!.sendMessage(chatRoomId: chatRoomId, messageDictionary:outgoingMessage!.messageDictionary, memberIds: memberIds, membersToPush: membersToPush)
+        sendPushNotification(memberToPush: membersToPush, message: text!)
+        
+        
     }
     
     //MARK: LoadMessages
@@ -843,8 +873,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         titleLabel.text = withUser.fullname
         if withUser.isOnline{
             subTitleLabel.text = "Online"
+            subTitleLabel.textColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         }else{
             subTitleLabel.text = "Offline"
+            subTitleLabel.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         }
         
         avatarButton.addTarget(self, action: #selector(self.showUserProfile), for: .touchUpInside)
@@ -938,6 +970,32 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     
     //MARK: helper functions
+    
+    func loadUserDefaults(){
+        firstLoad = userDefaults.bool(forKey: kFIRSTRUN)
+        if !firstLoad!{
+            userDefaults.set(true, forKey: kFIRSTRUN)
+            userDefaults.set(showAvatars, forKey: kSHOWAVATAR)
+            userDefaults.synchronize()
+        }
+        
+        showAvatars = userDefaults.bool(forKey: kSHOWAVATAR)
+        checkForBackgroundImage()
+        
+    }
+    
+    func checkForBackgroundImage(){
+        if userDefaults.object(forKey: kBACKGROUBNDIMAGE) != nil{
+            self.collectionView.backgroundColor = .clear
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+            imageView.image = UIImage(named:userDefaults.object(forKey: kBACKGROUBNDIMAGE) as! String)
+            
+            imageView.contentMode = .scaleAspectFit
+            self.view.insertSubview(imageView, at: 0)
+        }
+    }
+    
+    
     
     func addNewPictureMessageLink(link:String){
         allPictureMessages.append(link)

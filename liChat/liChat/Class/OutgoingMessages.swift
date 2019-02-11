@@ -58,10 +58,6 @@ class OutgoingMessages{
         updateRecents(chatRoomId: chatRoomId, lastMesssage: messageDictionary[kMESSAGE] as! String)
         
         
-        
-        //send push notification
-        
-        
     }
     
     

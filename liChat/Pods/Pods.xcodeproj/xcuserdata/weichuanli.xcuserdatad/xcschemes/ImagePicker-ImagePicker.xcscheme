@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8D8F6590F3F26F8E3A0E60F61E7604F1"
+               BlueprintIdentifier = "AB8DBBD12CD8D67A535E6ACCB53592E6"
                BuildableName = "ImagePicker.bundle"
                BlueprintName = "ImagePicker-ImagePicker"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D8F6590F3F26F8E3A0E60F61E7604F1"
+            BlueprintIdentifier = "AB8DBBD12CD8D67A535E6ACCB53592E6"
             BuildableName = "ImagePicker.bundle"
             BlueprintName = "ImagePicker-ImagePicker"
             ReferencedContainer = "container:Pods.xcodeproj">

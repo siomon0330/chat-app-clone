@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		542159673CD6C547319CBE6E /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9C6F9398BCC38804F28491 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		8D050075220E350000BFA46A /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D050074220E350000BFA46A /* BlockedUsersViewController.swift */; };
 		8D050077220E434A00BFA46A /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D050076220E434A00BFA46A /* BackgroundCollectionViewController.swift */; };
 		8D050079220E436300BFA46A /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D050078220E436300BFA46A /* BackgroundCollectionViewCell.swift */; };
@@ -19,6 +20,10 @@
 		8D194F4D220FBAC0003A5C34 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D194F4C220FBAC0003A5C34 /* Group.swift */; };
 		8D194F4F220FD7F6003A5C34 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D194F4E220FD7F6003A5C34 /* GroupViewController.swift */; };
 		8D194F51220FE1E5003A5C34 /* InviteUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D194F50220FE1E5003A5C34 /* InviteUserTableViewController.swift */; };
+		8D194F532210DC91003A5C34 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D194F522210DC91003A5C34 /* Encryption.swift */; };
+		8D386A60221138230064810B /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D386A5F221138230064810B /* PushNotifications.swift */; };
+		8D386A68221144930064810B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D386A67221144930064810B /* NotificationService.swift */; };
+		8D386A6C221144930064810B /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D386A65221144930064810B /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8D95E6BD2203A3670097122D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E6BC2203A3670097122D /* AppDelegate.swift */; };
 		8D95E6C22203A3670097122D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D95E6C02203A3670097122D /* Main.storyboard */; };
 		8D95E6C42203A3670097122D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D95E6C32203A3670097122D /* Assets.xcassets */; };
@@ -51,9 +56,35 @@
 		C9E6D2B9D03B928E216142AB /* Pods_liChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8D386A6A221144930064810B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D95E6B12203A3670097122D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D386A64221144930064810B;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8D386A70221144930064810B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8D386A6C221144930064810B /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		13BF50C60A277EFCCBFE9FCB /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		7CE6E32BAF8DDA36E42F855F /* Pods-liChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-liChat/Pods-liChat.debug.xcconfig"; sourceTree = "<group>"; };
 		88776F34BC92C8A4513AEA2E /* Pods-liChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-liChat/Pods-liChat.release.xcconfig"; sourceTree = "<group>"; };
+		8A9C6F9398BCC38804F28491 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D050074220E350000BFA46A /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
 		8D050076220E434A00BFA46A /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
 		8D050078220E436300BFA46A /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -66,6 +97,12 @@
 		8D194F4C220FBAC0003A5C34 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		8D194F4E220FD7F6003A5C34 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		8D194F50220FE1E5003A5C34 /* InviteUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserTableViewController.swift; sourceTree = "<group>"; };
+		8D194F522210DC91003A5C34 /* Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
+		8D33847222112F4B002BE230 /* liChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = liChat.entitlements; sourceTree = "<group>"; };
+		8D386A5F221138230064810B /* PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
+		8D386A65221144930064810B /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D386A67221144930064810B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		8D386A69221144930064810B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D95E6B92203A3670097122D /* liChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = liChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D95E6BC2203A3670097122D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D95E6C12203A3670097122D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,10 +134,19 @@
 		8DABC401220CFAE400343A94 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8DABC403220D3B2900343A94 /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
 		8DABC405220D3B8B00343A94 /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
+		AAD13251F138EE4AB039CF59 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8D386A62221144930064810B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				542159673CD6C547319CBE6E /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D95E6B62203A3670097122D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,10 +169,20 @@
 			path = SettingsView;
 			sourceTree = "<group>";
 		};
+		8D386A66221144930064810B /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				8D386A67221144930064810B /* NotificationService.swift */,
+				8D386A69221144930064810B /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 		8D95E6B02203A3670097122D = {
 			isa = PBXGroup;
 			children = (
 				8D95E6BB2203A3670097122D /* liChat */,
+				8D386A66221144930064810B /* OneSignalNotificationServiceExtension */,
 				8D95E6BA2203A3670097122D /* Products */,
 				AE3426CDEB45B6092586953E /* Pods */,
 				F1E5BDA810069B0D44BD5C59 /* Frameworks */,
@@ -137,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				8D95E6B92203A3670097122D /* liChat.app */,
+				8D386A65221144930064810B /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +201,7 @@
 		8D95E6BB2203A3670097122D /* liChat */ = {
 			isa = PBXGroup;
 			children = (
+				8D33847222112F4B002BE230 /* liChat.entitlements */,
 				8D95E6BC2203A3670097122D /* AppDelegate.swift */,
 				8D05007E220E650800BFA46A /* SettingsView */,
 				8D95E6EA2206D6250097122D /* WelcomeView */,
@@ -178,6 +236,7 @@
 				8D96159F2207EAD9004A9534 /* Recent.swift */,
 				8D9615A522091235004A9534 /* OutgoingMessages.swift */,
 				8DABC3FB220C09D500343A94 /* PhotoMediaItem.swift */,
+				8D386A5F221138230064810B /* PushNotifications.swift */,
 				8D9615A722091B2E004A9534 /* IncomingMessages.swift */,
 				8DABC3F7220BF51100343A94 /* Camera.swift */,
 				8DABC3FD220CDAE100343A94 /* VideoMessages.swift */,
@@ -185,6 +244,7 @@
 				8D194F46220E83C1003A5C34 /* CountryCode.swift */,
 				8D95E6D22203B7860097122D /* FUser.swift */,
 				8D194F4C220FBAC0003A5C34 /* Group.swift */,
+				8D194F522210DC91003A5C34 /* Encryption.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -240,6 +300,8 @@
 			children = (
 				7CE6E32BAF8DDA36E42F855F /* Pods-liChat.debug.xcconfig */,
 				88776F34BC92C8A4513AEA2E /* Pods-liChat.release.xcconfig */,
+				AAD13251F138EE4AB039CF59 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				13BF50C60A277EFCCBFE9FCB /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -248,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				DF3071A399A0CA7E47C970C3 /* Pods_liChat.framework */,
+				8A9C6F9398BCC38804F28491 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -255,6 +318,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8D386A64221144930064810B /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D386A6D221144930064810B /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				545EEF43E05E5FD3FCE3FBEF /* [CP] Check Pods Manifest.lock */,
+				8D386A61221144930064810B /* Sources */,
+				8D386A62221144930064810B /* Frameworks */,
+				8D386A63221144930064810B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 8D386A65221144930064810B /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8D95E6B82203A3670097122D /* liChat */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D95E6CB2203A3670097122D /* Build configuration list for PBXNativeTarget "liChat" */;
@@ -264,10 +345,12 @@
 				8D95E6B62203A3670097122D /* Frameworks */,
 				8D95E6B72203A3670097122D /* Resources */,
 				852B9FB4AAA7AA1E65DD45EA /* [CP] Embed Pods Frameworks */,
+				8D386A70221144930064810B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8D386A6B221144930064810B /* PBXTargetDependency */,
 			);
 			name = liChat;
 			productName = liChat;
@@ -280,13 +363,28 @@
 		8D95E6B12203A3670097122D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Simon;
 				TargetAttributes = {
+					8D386A64221144930064810B = {
+						CreatedOnToolsVersion = 10.2;
+						ProvisioningStyle = Automatic;
+					};
 					8D95E6B82203A3670097122D = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -304,11 +402,19 @@
 			projectRoot = "";
 			targets = (
 				8D95E6B82203A3670097122D /* liChat */,
+				8D386A64221144930064810B /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8D386A63221144930064810B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D95E6B72203A3670097122D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,13 +429,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		545EEF43E05E5FD3FCE3FBEF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		852B9FB4AAA7AA1E65DD45EA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-liChat/Pods-liChat-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-liChat/Pods-liChat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -342,6 +470,7 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
 				"${BUILT_PRODUCTS_DIR}/SCSiriWaveformView/SCSiriWaveformView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -367,6 +496,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSiriWaveformView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -380,7 +510,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-liChat/Pods-liChat-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-liChat/Pods-liChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		91E6E89E687840BA415A1E2D /* [CP] Check Pods Manifest.lock */ = {
@@ -404,6 +534,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8D386A61221144930064810B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D386A68221144930064810B /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D95E6B52203A3670097122D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -413,6 +551,7 @@
 				8D9615A02207EAD9004A9534 /* Recent.swift in Sources */,
 				8D95E6E2220683D20097122D /* UserTableViewCell.swift in Sources */,
 				8D95E6E92206C8270097122D /* ProfileViewTableViewController.swift in Sources */,
+				8D386A60221138230064810B /* PushNotifications.swift in Sources */,
 				8DABC3FC220C09D500343A94 /* PhotoMediaItem.swift in Sources */,
 				8D9615A822091B2E004A9534 /* IncomingMessages.swift in Sources */,
 				8D9615A22207FFF2004A9534 /* RecentChatTableViewCell.swift in Sources */,
@@ -438,6 +577,7 @@
 				8D95E6E5220688840097122D /* UsersTableViewController.swift in Sources */,
 				8DABC3FE220CDAE100343A94 /* VideoMessages.swift in Sources */,
 				8DABC400220CE95A00343A94 /* AudioViewController.swift in Sources */,
+				8D194F532210DC91003A5C34 /* Encryption.swift in Sources */,
 				8D194F4D220FBAC0003A5C34 /* Group.swift in Sources */,
 				8D194F47220E83C1003A5C34 /* CountryCode.swift in Sources */,
 				8D194F49220E9C83003A5C34 /* GroupMemberCollectionViewCell.swift in Sources */,
@@ -449,6 +589,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8D386A6B221144930064810B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D386A64221144930064810B /* OneSignalNotificationServiceExtension */;
+			targetProxy = 8D386A6A221144930064810B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8D95E6C02203A3670097122D /* Main.storyboard */ = {
@@ -470,6 +618,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8D386A6E221144930064810B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAD13251F138EE4AB039CF59 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53B5VF7VC8;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Simon.liChat.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8D386A6F221144930064810B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13BF50C60A277EFCCBFE9FCB /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53B5VF7VC8;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Simon.liChat.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8D95E6C92203A3670097122D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -581,10 +772,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7CE6E32BAF8DDA36E42F855F /* Pods-liChat.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = liChat/liChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53B5VF7VC8;
 				INFOPLIST_FILE = liChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Simon.liChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -597,10 +791,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88776F34BC92C8A4513AEA2E /* Pods-liChat.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = liChat/liChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53B5VF7VC8;
 				INFOPLIST_FILE = liChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Simon.liChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -612,6 +809,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8D386A6D221144930064810B /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D386A6E221144930064810B /* Debug */,
+				8D386A6F221144930064810B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8D95E6B42203A3670097122D /* Build configuration list for PBXProject "liChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

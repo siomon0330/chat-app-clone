@@ -8,9 +8,9 @@
 
 import UIKit
 import ProgressHUD
+import ImagePicker
 
-class GroupViewController: UIViewController {
-    
+class GroupViewController: UIViewController, ImagePickerDelegate {
     
     @IBOutlet weak var cameraButtonOutlet: UIImageView!
     @IBOutlet weak var groupNameTextField: UITextField!
@@ -46,6 +46,29 @@ class GroupViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        
+        var withValues :[String:Any]!
+        if groupNameTextField.text != ""{
+            withValues = [kNAME: groupNameTextField.text!]
+        }else{
+            ProgressHUD.showError("Group name is required")
+            return
+        }
+        
+        let avatarData = UIImageJPEGRepresentation(cameraButtonOutlet.image!, 0.4)!
+        
+        let avatarString = avatarData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue:0))
+        withValues = [kNAME:groupNameTextField.text!, kAVATAR:avatarString]
+        
+        Group.updateGroup(groupId: group[kGROUPID] as! String, withValues: withValues)
+        
+        withValues = [kWITHUSERFULLNAME:groupNameTextField.text!, kAVATAR:avatarString]
+        
+        updateExistingRecentWithNewValues(chatRoomId: group[kGROUPID] as! String, members: group[kMEMBERS] as! [String], withValues: withValues)
+        
+        self.navigationController?.popToRootViewController(animated: true)
+        
+        
     }
     
     @objc func inviteUsers(){
@@ -70,7 +93,11 @@ class GroupViewController: UIViewController {
     func showIconOptions(){
         let optionMenu = UIAlertController(title: "Choose group Icon", message: nil, preferredStyle: .actionSheet)
         let takePhotoAction = UIAlertAction(title: "Take/Choose Photo", style: .default) { (alert) in
-            print("Camera")
+            
+            let imagePicker = ImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.imageLimit = 1
+            self.present(imagePicker, animated: true, completion: nil)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert) in
@@ -109,6 +136,28 @@ class GroupViewController: UIViewController {
         
         
     }
+    
+    
+    //MARK:ImagePicker Delegate
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        
+        if images.count > 0{
+            self.groupIcon = images.first!
+            self.cameraButtonOutlet.image = self.groupIcon!.circleMasked
+            self.editButtonOutlet.isHidden = false
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     
 }
